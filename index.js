@@ -5,9 +5,11 @@ import cors from "cors";
 import router from "./routes/router.js";
 import bookModel from "./models/book.js";
 import { sampleData } from "./Data/SampleData.js";
+import { sampleDataClimate } from "./Data/SampleDataClimate.js";
 import pkg from 'jsonwebtoken';
 import Book from "./models/book.js";
 import LogEvent from "./models/logEvent.js";
+import Product from "./models/product.js";
 const { verify } = pkg;
 const app = express();
 const port = process.env.PORT || 5000;
@@ -20,9 +22,9 @@ mongoose.connect(
 // middleware
 
 // app.use(async(req, res, next) => {
-//     Book.deleteMany().exec();
-//     sampleData.forEach(async(item) => {
-//         const newBook = new bookModel({
+//     Product.deleteMany().exec();
+//     sampleDataClimate.forEach(async(item) => {
+//         const newBook = new Product({
 //             // ...item,
 //             currentPrice: +item.currentPrice || 0,
 //             previousPrice: +item.previousPrice || 0,
@@ -34,6 +36,7 @@ mongoose.connect(
 //         });
 //         await newBook.save();
 //     });
+//     res.send("done");
 // });
 
 app.use(cors());
